@@ -1,0 +1,10 @@
+pandas>=2.0
+numpy>=1.24
+openpyxl>=3.1
+scikit-learn>=1.3
+textstat>=0.7.3
+regex>=2023.10.3
+krippendorff>=0.6.0
+matplotlib>=3.7
+streamlit>=1.32
+altair>=5.0
