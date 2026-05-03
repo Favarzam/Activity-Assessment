@@ -1,0 +1,29 @@
+feature,feature_name,n,AC2_ordinal,AC2_CI,kappa_w,alpha_ordinal,exact_pct,within_1_pct,SMD,human_mean,algo_mean
+F1,"Content objectives clearly defined, displayed, reviewed",35,0.713,"[0.634, 0.801]",0.348,0.287,34.3,88.6,-0.438,2.74,2.37
+F2,"Language objectives clearly defined, displayed, reviewed",35,0.625,"[0.542, 0.712]",0.631,0.654,22.9,85.7,0.044,2.31,2.37
+F3,Content concepts age-appropriate,35,0.595,"[0.499, 0.699]",0.143,-0.088,31.4,57.1,-1.223,3.49,2.49
+F4,Supplementary materials used to a high degree,35,0.744,"[0.646, 0.834]",0.255,-0.02,42.9,82.9,-1.088,3.83,3.09
+F5,Content adaptation to all proficiency levels,35,0.238,"[0.116, 0.380]",0.258,-0.057,5.7,37.1,-1.71,3.31,1.46
+F6,Meaningful activities integrating concepts and language,35,0.698,"[0.561, 0.815]",0.189,0.035,48.6,65.7,-1.086,3.86,2.97
+F7,Concepts linked to background experiences,35,0.424,"[0.291, 0.566]",0.332,0.187,20.0,57.1,-1.08,2.49,1.2
+F8,Past learning explicitly linked,35,0.294,"[0.171, 0.428]",0.162,-0.242,8.6,42.9,-1.599,2.23,0.6
+F9,Key vocabulary emphasized,35,0.191,"[0.055, 0.343]",0.156,-0.277,11.4,31.4,-1.901,3.54,1.51
+F10,Speech appropriate for proficiency [partial-recovery],35,0.131,"[0.014, 0.258]",0.054,-0.56,8.6,17.1,-2.755,2.57,0.43
+F11,Explanation of academic tasks clear,35,0.406,"[0.259, 0.544]",0.103,-0.295,8.6,60.0,-1.52,3.66,2.23
+F12,Variety of techniques to make content clear,35,0.716,"[0.577, 0.836]",0.173,0.094,48.6,74.3,-0.931,3.86,3.06
+F13,Opportunities to use learning strategies,35,0.229,"[0.080, 0.399]",0.103,-0.109,14.3,37.1,-1.571,3.43,1.66
+F14,Scaffolding techniques consistently used,35,0.632,"[0.543, 0.727]",0.379,0.186,22.9,82.9,-1.162,3.49,2.51
+F15,Higher-order thinking promoted,35,0.349,"[0.256, 0.452]",0.131,-0.349,2.9,45.7,-2.015,3.4,1.83
+F16,Frequent opportunities for interaction,35,0.469,"[0.312, 0.626]",0.232,0.025,25.7,60.0,-1.299,3.71,2.29
+F17,Grouping configurations support objectives,35,0.198,"[0.077, 0.341]",0.222,-0.173,5.7,31.4,-1.835,3.26,1.31
+F19,Opportunities to clarify in L1,35,0.461,"[0.315, 0.625]",0.479,0.28,25.7,60.0,-0.941,3.03,1.69
+F20,Hands-on materials/manipulatives,35,0.494,"[0.346, 0.626]",0.279,0.085,17.1,68.6,-1.182,3.34,2.11
+F21,Application activities for content + language,35,-0.154,"[-0.252, -0.017]",0.023,-0.713,2.9,2.9,-3.686,3.83,0.74
+F22,Activities integrate all four language skills,35,0.724,"[0.602, 0.833]",0.339,0.308,48.6,77.1,-0.897,3.69,2.91
+F23,Content objectives supported by delivery [partial-recovery],35,0.078,"[-0.124, 0.303]",0.08,-0.228,25.7,28.6,-1.879,3.6,1.03
+F24,Language objectives supported by delivery [partial-recovery],35,0.296,"[0.105, 0.504]",0.267,0.381,37.1,40.0,-1.225,3.23,1.37
+F26,Pacing appropriate [partial-recovery],35,0.505,"[0.376, 0.626]",0.621,0.447,11.4,80.0,-0.799,2.77,1.54
+F27,Comprehensive review of key vocabulary,35,0.313,"[0.171, 0.471]",0.132,-0.196,17.1,42.9,-1.721,2.43,0.74
+F28,Comprehensive review of key content concepts,35,0.278,"[0.150, 0.421]",0.133,-0.235,11.4,40.0,-1.779,2.71,1.0
+F29,Regular feedback to students [partial-recovery],35,0.319,"[0.191, 0.450]",0.137,-0.233,11.4,40.0,-1.786,2.23,0.6
+F30,Assessment of comprehension throughout,35,0.278,"[0.162, 0.414]",0.235,-0.116,8.6,37.1,-1.74,3.34,1.57

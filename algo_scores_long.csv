@@ -1,0 +1,1051 @@
+activity_id,feature_num,feature_name,score_0_4
+1,1,"Content objectives clearly defined, displayed, reviewed",1
+1,2,"Language objectives clearly defined, displayed, reviewed",1
+1,3,Content concepts age-appropriate,2
+1,4,Supplementary materials used to a high degree,3
+1,5,Content adaptation to all proficiency levels,0
+1,6,Meaningful activities integrating concepts and language,3
+1,7,Concepts linked to background experiences,0
+1,8,Past learning explicitly linked,1
+1,9,Key vocabulary emphasized,0
+1,10,Speech appropriate for proficiency [partial-recovery],1
+1,11,Explanation of academic tasks clear,1
+1,12,Variety of techniques to make content clear,1
+1,13,Opportunities to use learning strategies,1
+1,14,Scaffolding techniques consistently used,1
+1,15,Higher-order thinking promoted,0
+1,16,Frequent opportunities for interaction,1
+1,17,Grouping configurations support objectives,0
+1,18,Sufficient wait time [excluded],0
+1,19,Opportunities to clarify in L1,0
+1,20,Hands-on materials/manipulatives,1
+1,21,Application activities for content + language,0
+1,22,Activities integrate all four language skills,3
+1,23,Content objectives supported by delivery [partial-recovery],0
+1,24,Language objectives supported by delivery [partial-recovery],0
+1,25,Students engaged 90-100% [observation-dependent],3
+1,26,Pacing appropriate [partial-recovery],0
+1,27,Comprehensive review of key vocabulary,0
+1,28,Comprehensive review of key content concepts,0
+1,29,Regular feedback to students [partial-recovery],1
+1,30,Assessment of comprehension throughout,0
+2,1,"Content objectives clearly defined, displayed, reviewed",1
+2,2,"Language objectives clearly defined, displayed, reviewed",1
+2,3,Content concepts age-appropriate,3
+2,4,Supplementary materials used to a high degree,2
+2,5,Content adaptation to all proficiency levels,0
+2,6,Meaningful activities integrating concepts and language,2
+2,7,Concepts linked to background experiences,3
+2,8,Past learning explicitly linked,0
+2,9,Key vocabulary emphasized,2
+2,10,Speech appropriate for proficiency [partial-recovery],1
+2,11,Explanation of academic tasks clear,3
+2,12,Variety of techniques to make content clear,2
+2,13,Opportunities to use learning strategies,0
+2,14,Scaffolding techniques consistently used,2
+2,15,Higher-order thinking promoted,1
+2,16,Frequent opportunities for interaction,1
+2,17,Grouping configurations support objectives,0
+2,18,Sufficient wait time [excluded],0
+2,19,Opportunities to clarify in L1,0
+2,20,Hands-on materials/manipulatives,3
+2,21,Application activities for content + language,0
+2,22,Activities integrate all four language skills,2
+2,23,Content objectives supported by delivery [partial-recovery],0
+2,24,Language objectives supported by delivery [partial-recovery],0
+2,25,Students engaged 90-100% [observation-dependent],2
+2,26,Pacing appropriate [partial-recovery],0
+2,27,Comprehensive review of key vocabulary,1
+2,28,Comprehensive review of key content concepts,0
+2,29,Regular feedback to students [partial-recovery],0
+2,30,Assessment of comprehension throughout,1
+3,1,"Content objectives clearly defined, displayed, reviewed",2
+3,2,"Language objectives clearly defined, displayed, reviewed",0
+3,3,Content concepts age-appropriate,4
+3,4,Supplementary materials used to a high degree,3
+3,5,Content adaptation to all proficiency levels,0
+3,6,Meaningful activities integrating concepts and language,3
+3,7,Concepts linked to background experiences,0
+3,8,Past learning explicitly linked,0
+3,9,Key vocabulary emphasized,0
+3,10,Speech appropriate for proficiency [partial-recovery],0
+3,11,Explanation of academic tasks clear,1
+3,12,Variety of techniques to make content clear,4
+3,13,Opportunities to use learning strategies,1
+3,14,Scaffolding techniques consistently used,1
+3,15,Higher-order thinking promoted,2
+3,16,Frequent opportunities for interaction,0
+3,17,Grouping configurations support objectives,0
+3,18,Sufficient wait time [excluded],0
+3,19,Opportunities to clarify in L1,0
+3,20,Hands-on materials/manipulatives,3
+3,21,Application activities for content + language,0
+3,22,Activities integrate all four language skills,3
+3,23,Content objectives supported by delivery [partial-recovery],0
+3,24,Language objectives supported by delivery [partial-recovery],0
+3,25,Students engaged 90-100% [observation-dependent],2
+3,26,Pacing appropriate [partial-recovery],0
+3,27,Comprehensive review of key vocabulary,0
+3,28,Comprehensive review of key content concepts,0
+3,29,Regular feedback to students [partial-recovery],0
+3,30,Assessment of comprehension throughout,1
+4,1,"Content objectives clearly defined, displayed, reviewed",2
+4,2,"Language objectives clearly defined, displayed, reviewed",0
+4,3,Content concepts age-appropriate,2
+4,4,Supplementary materials used to a high degree,1
+4,5,Content adaptation to all proficiency levels,1
+4,6,Meaningful activities integrating concepts and language,1
+4,7,Concepts linked to background experiences,1
+4,8,Past learning explicitly linked,0
+4,9,Key vocabulary emphasized,1
+4,10,Speech appropriate for proficiency [partial-recovery],0
+4,11,Explanation of academic tasks clear,2
+4,12,Variety of techniques to make content clear,1
+4,13,Opportunities to use learning strategies,0
+4,14,Scaffolding techniques consistently used,2
+4,15,Higher-order thinking promoted,2
+4,16,Frequent opportunities for interaction,0
+4,17,Grouping configurations support objectives,0
+4,18,Sufficient wait time [excluded],0
+4,19,Opportunities to clarify in L1,2
+4,20,Hands-on materials/manipulatives,2
+4,21,Application activities for content + language,0
+4,22,Activities integrate all four language skills,1
+4,23,Content objectives supported by delivery [partial-recovery],0
+4,24,Language objectives supported by delivery [partial-recovery],0
+4,25,Students engaged 90-100% [observation-dependent],1
+4,26,Pacing appropriate [partial-recovery],0
+4,27,Comprehensive review of key vocabulary,0
+4,28,Comprehensive review of key content concepts,1
+4,29,Regular feedback to students [partial-recovery],0
+4,30,Assessment of comprehension throughout,0
+5,1,"Content objectives clearly defined, displayed, reviewed",2
+5,2,"Language objectives clearly defined, displayed, reviewed",0
+5,3,Content concepts age-appropriate,2
+5,4,Supplementary materials used to a high degree,4
+5,5,Content adaptation to all proficiency levels,0
+5,6,Meaningful activities integrating concepts and language,4
+5,7,Concepts linked to background experiences,0
+5,8,Past learning explicitly linked,0
+5,9,Key vocabulary emphasized,4
+5,10,Speech appropriate for proficiency [partial-recovery],0
+5,11,Explanation of academic tasks clear,2
+5,12,Variety of techniques to make content clear,4
+5,13,Opportunities to use learning strategies,0
+5,14,Scaffolding techniques consistently used,2
+5,15,Higher-order thinking promoted,1
+5,16,Frequent opportunities for interaction,1
+5,17,Grouping configurations support objectives,0
+5,18,Sufficient wait time [excluded],0
+5,19,Opportunities to clarify in L1,0
+5,20,Hands-on materials/manipulatives,3
+5,21,Application activities for content + language,0
+5,22,Activities integrate all four language skills,4
+5,23,Content objectives supported by delivery [partial-recovery],0
+5,24,Language objectives supported by delivery [partial-recovery],0
+5,25,Students engaged 90-100% [observation-dependent],2
+5,26,Pacing appropriate [partial-recovery],0
+5,27,Comprehensive review of key vocabulary,3
+5,28,Comprehensive review of key content concepts,0
+5,29,Regular feedback to students [partial-recovery],0
+5,30,Assessment of comprehension throughout,1
+6,1,"Content objectives clearly defined, displayed, reviewed",2
+6,2,"Language objectives clearly defined, displayed, reviewed",1
+6,3,Content concepts age-appropriate,2
+6,4,Supplementary materials used to a high degree,4
+6,5,Content adaptation to all proficiency levels,1
+6,6,Meaningful activities integrating concepts and language,4
+6,7,Concepts linked to background experiences,2
+6,8,Past learning explicitly linked,0
+6,9,Key vocabulary emphasized,0
+6,10,Speech appropriate for proficiency [partial-recovery],2
+6,11,Explanation of academic tasks clear,4
+6,12,Variety of techniques to make content clear,4
+6,13,Opportunities to use learning strategies,4
+6,14,Scaffolding techniques consistently used,3
+6,15,Higher-order thinking promoted,1
+6,16,Frequent opportunities for interaction,0
+6,17,Grouping configurations support objectives,1
+6,18,Sufficient wait time [excluded],0
+6,19,Opportunities to clarify in L1,1
+6,20,Hands-on materials/manipulatives,0
+6,21,Application activities for content + language,0
+6,22,Activities integrate all four language skills,4
+6,23,Content objectives supported by delivery [partial-recovery],0
+6,24,Language objectives supported by delivery [partial-recovery],0
+6,25,Students engaged 90-100% [observation-dependent],2
+6,26,Pacing appropriate [partial-recovery],0
+6,27,Comprehensive review of key vocabulary,0
+6,28,Comprehensive review of key content concepts,0
+6,29,Regular feedback to students [partial-recovery],1
+6,30,Assessment of comprehension throughout,0
+7,1,"Content objectives clearly defined, displayed, reviewed",2
+7,2,"Language objectives clearly defined, displayed, reviewed",0
+7,3,Content concepts age-appropriate,2
+7,4,Supplementary materials used to a high degree,2
+7,5,Content adaptation to all proficiency levels,0
+7,6,Meaningful activities integrating concepts and language,2
+7,7,Concepts linked to background experiences,2
+7,8,Past learning explicitly linked,3
+7,9,Key vocabulary emphasized,3
+7,10,Speech appropriate for proficiency [partial-recovery],1
+7,11,Explanation of academic tasks clear,2
+7,12,Variety of techniques to make content clear,1
+7,13,Opportunities to use learning strategies,1
+7,14,Scaffolding techniques consistently used,1
+7,15,Higher-order thinking promoted,3
+7,16,Frequent opportunities for interaction,3
+7,17,Grouping configurations support objectives,3
+7,18,Sufficient wait time [excluded],0
+7,19,Opportunities to clarify in L1,0
+7,20,Hands-on materials/manipulatives,3
+7,21,Application activities for content + language,2
+7,22,Activities integrate all four language skills,2
+7,23,Content objectives supported by delivery [partial-recovery],0
+7,24,Language objectives supported by delivery [partial-recovery],0
+7,25,Students engaged 90-100% [observation-dependent],2
+7,26,Pacing appropriate [partial-recovery],0
+7,27,Comprehensive review of key vocabulary,0
+7,28,Comprehensive review of key content concepts,2
+7,29,Regular feedback to students [partial-recovery],1
+7,30,Assessment of comprehension throughout,2
+8,1,"Content objectives clearly defined, displayed, reviewed",2
+8,2,"Language objectives clearly defined, displayed, reviewed",1
+8,3,Content concepts age-appropriate,2
+8,4,Supplementary materials used to a high degree,3
+8,5,Content adaptation to all proficiency levels,2
+8,6,Meaningful activities integrating concepts and language,0
+8,7,Concepts linked to background experiences,2
+8,8,Past learning explicitly linked,2
+8,9,Key vocabulary emphasized,4
+8,10,Speech appropriate for proficiency [partial-recovery],1
+8,11,Explanation of academic tasks clear,0
+8,12,Variety of techniques to make content clear,2
+8,13,Opportunities to use learning strategies,1
+8,14,Scaffolding techniques consistently used,0
+8,15,Higher-order thinking promoted,1
+8,16,Frequent opportunities for interaction,3
+8,17,Grouping configurations support objectives,2
+8,18,Sufficient wait time [excluded],0
+8,19,Opportunities to clarify in L1,0
+8,20,Hands-on materials/manipulatives,1
+8,21,Application activities for content + language,0
+8,22,Activities integrate all four language skills,0
+8,23,Content objectives supported by delivery [partial-recovery],0
+8,24,Language objectives supported by delivery [partial-recovery],0
+8,25,Students engaged 90-100% [observation-dependent],2
+8,26,Pacing appropriate [partial-recovery],0
+8,27,Comprehensive review of key vocabulary,1
+8,28,Comprehensive review of key content concepts,0
+8,29,Regular feedback to students [partial-recovery],1
+8,30,Assessment of comprehension throughout,1
+9,1,"Content objectives clearly defined, displayed, reviewed",1
+9,2,"Language objectives clearly defined, displayed, reviewed",1
+9,3,Content concepts age-appropriate,2
+9,4,Supplementary materials used to a high degree,2
+9,5,Content adaptation to all proficiency levels,0
+9,6,Meaningful activities integrating concepts and language,2
+9,7,Concepts linked to background experiences,0
+9,8,Past learning explicitly linked,0
+9,9,Key vocabulary emphasized,0
+9,10,Speech appropriate for proficiency [partial-recovery],0
+9,11,Explanation of academic tasks clear,0
+9,12,Variety of techniques to make content clear,1
+9,13,Opportunities to use learning strategies,0
+9,14,Scaffolding techniques consistently used,2
+9,15,Higher-order thinking promoted,2
+9,16,Frequent opportunities for interaction,1
+9,17,Grouping configurations support objectives,0
+9,18,Sufficient wait time [excluded],0
+9,19,Opportunities to clarify in L1,0
+9,20,Hands-on materials/manipulatives,1
+9,21,Application activities for content + language,0
+9,22,Activities integrate all four language skills,2
+9,23,Content objectives supported by delivery [partial-recovery],0
+9,24,Language objectives supported by delivery [partial-recovery],0
+9,25,Students engaged 90-100% [observation-dependent],3
+9,26,Pacing appropriate [partial-recovery],0
+9,27,Comprehensive review of key vocabulary,1
+9,28,Comprehensive review of key content concepts,0
+9,29,Regular feedback to students [partial-recovery],0
+9,30,Assessment of comprehension throughout,0
+10,1,"Content objectives clearly defined, displayed, reviewed",2
+10,2,"Language objectives clearly defined, displayed, reviewed",2
+10,3,Content concepts age-appropriate,2
+10,4,Supplementary materials used to a high degree,2
+10,5,Content adaptation to all proficiency levels,0
+10,6,Meaningful activities integrating concepts and language,2
+10,7,Concepts linked to background experiences,1
+10,8,Past learning explicitly linked,0
+10,9,Key vocabulary emphasized,2
+10,10,Speech appropriate for proficiency [partial-recovery],0
+10,11,Explanation of academic tasks clear,3
+10,12,Variety of techniques to make content clear,2
+10,13,Opportunities to use learning strategies,2
+10,14,Scaffolding techniques consistently used,3
+10,15,Higher-order thinking promoted,2
+10,16,Frequent opportunities for interaction,1
+10,17,Grouping configurations support objectives,0
+10,18,Sufficient wait time [excluded],0
+10,19,Opportunities to clarify in L1,0
+10,20,Hands-on materials/manipulatives,1
+10,21,Application activities for content + language,0
+10,22,Activities integrate all four language skills,2
+10,23,Content objectives supported by delivery [partial-recovery],0
+10,24,Language objectives supported by delivery [partial-recovery],0
+10,25,Students engaged 90-100% [observation-dependent],1
+10,26,Pacing appropriate [partial-recovery],0
+10,27,Comprehensive review of key vocabulary,1
+10,28,Comprehensive review of key content concepts,1
+10,29,Regular feedback to students [partial-recovery],1
+10,30,Assessment of comprehension throughout,1
+11,1,"Content objectives clearly defined, displayed, reviewed",1
+11,2,"Language objectives clearly defined, displayed, reviewed",1
+11,3,Content concepts age-appropriate,2
+11,4,Supplementary materials used to a high degree,3
+11,5,Content adaptation to all proficiency levels,1
+11,6,Meaningful activities integrating concepts and language,3
+11,7,Concepts linked to background experiences,0
+11,8,Past learning explicitly linked,0
+11,9,Key vocabulary emphasized,3
+11,10,Speech appropriate for proficiency [partial-recovery],0
+11,11,Explanation of academic tasks clear,0
+11,12,Variety of techniques to make content clear,4
+11,13,Opportunities to use learning strategies,0
+11,14,Scaffolding techniques consistently used,2
+11,15,Higher-order thinking promoted,1
+11,16,Frequent opportunities for interaction,3
+11,17,Grouping configurations support objectives,2
+11,18,Sufficient wait time [excluded],0
+11,19,Opportunities to clarify in L1,2
+11,20,Hands-on materials/manipulatives,1
+11,21,Application activities for content + language,0
+11,22,Activities integrate all four language skills,3
+11,23,Content objectives supported by delivery [partial-recovery],0
+11,24,Language objectives supported by delivery [partial-recovery],0
+11,25,Students engaged 90-100% [observation-dependent],1
+11,26,Pacing appropriate [partial-recovery],0
+11,27,Comprehensive review of key vocabulary,0
+11,28,Comprehensive review of key content concepts,0
+11,29,Regular feedback to students [partial-recovery],0
+11,30,Assessment of comprehension throughout,2
+12,1,"Content objectives clearly defined, displayed, reviewed",1
+12,2,"Language objectives clearly defined, displayed, reviewed",3
+12,3,Content concepts age-appropriate,2
+12,4,Supplementary materials used to a high degree,3
+12,5,Content adaptation to all proficiency levels,0
+12,6,Meaningful activities integrating concepts and language,3
+12,7,Concepts linked to background experiences,1
+12,8,Past learning explicitly linked,1
+12,9,Key vocabulary emphasized,0
+12,10,Speech appropriate for proficiency [partial-recovery],0
+12,11,Explanation of academic tasks clear,3
+12,12,Variety of techniques to make content clear,2
+12,13,Opportunities to use learning strategies,4
+12,14,Scaffolding techniques consistently used,2
+12,15,Higher-order thinking promoted,1
+12,16,Frequent opportunities for interaction,1
+12,17,Grouping configurations support objectives,1
+12,18,Sufficient wait time [excluded],0
+12,19,Opportunities to clarify in L1,0
+12,20,Hands-on materials/manipulatives,0
+12,21,Application activities for content + language,0
+12,22,Activities integrate all four language skills,2
+12,23,Content objectives supported by delivery [partial-recovery],0
+12,24,Language objectives supported by delivery [partial-recovery],0
+12,25,Students engaged 90-100% [observation-dependent],3
+12,26,Pacing appropriate [partial-recovery],3
+12,27,Comprehensive review of key vocabulary,0
+12,28,Comprehensive review of key content concepts,0
+12,29,Regular feedback to students [partial-recovery],0
+12,30,Assessment of comprehension throughout,1
+13,1,"Content objectives clearly defined, displayed, reviewed",2
+13,2,"Language objectives clearly defined, displayed, reviewed",3
+13,3,Content concepts age-appropriate,2
+13,4,Supplementary materials used to a high degree,3
+13,5,Content adaptation to all proficiency levels,3
+13,6,Meaningful activities integrating concepts and language,4
+13,7,Concepts linked to background experiences,1
+13,8,Past learning explicitly linked,1
+13,9,Key vocabulary emphasized,1
+13,10,Speech appropriate for proficiency [partial-recovery],2
+13,11,Explanation of academic tasks clear,3
+13,12,Variety of techniques to make content clear,4
+13,13,Opportunities to use learning strategies,4
+13,14,Scaffolding techniques consistently used,3
+13,15,Higher-order thinking promoted,3
+13,16,Frequent opportunities for interaction,3
+13,17,Grouping configurations support objectives,3
+13,18,Sufficient wait time [excluded],0
+13,19,Opportunities to clarify in L1,3
+13,20,Hands-on materials/manipulatives,3
+13,21,Application activities for content + language,2
+13,22,Activities integrate all four language skills,4
+13,23,Content objectives supported by delivery [partial-recovery],0
+13,24,Language objectives supported by delivery [partial-recovery],0
+13,25,Students engaged 90-100% [observation-dependent],4
+13,26,Pacing appropriate [partial-recovery],4
+13,27,Comprehensive review of key vocabulary,0
+13,28,Comprehensive review of key content concepts,2
+13,29,Regular feedback to students [partial-recovery],1
+13,30,Assessment of comprehension throughout,4
+14,1,"Content objectives clearly defined, displayed, reviewed",2
+14,2,"Language objectives clearly defined, displayed, reviewed",3
+14,3,Content concepts age-appropriate,4
+14,4,Supplementary materials used to a high degree,3
+14,5,Content adaptation to all proficiency levels,3
+14,6,Meaningful activities integrating concepts and language,3
+14,7,Concepts linked to background experiences,1
+14,8,Past learning explicitly linked,1
+14,9,Key vocabulary emphasized,2
+14,10,Speech appropriate for proficiency [partial-recovery],0
+14,11,Explanation of academic tasks clear,3
+14,12,Variety of techniques to make content clear,4
+14,13,Opportunities to use learning strategies,2
+14,14,Scaffolding techniques consistently used,3
+14,15,Higher-order thinking promoted,2
+14,16,Frequent opportunities for interaction,4
+14,17,Grouping configurations support objectives,2
+14,18,Sufficient wait time [excluded],0
+14,19,Opportunities to clarify in L1,4
+14,20,Hands-on materials/manipulatives,1
+14,21,Application activities for content + language,0
+14,22,Activities integrate all four language skills,3
+14,23,Content objectives supported by delivery [partial-recovery],0
+14,24,Language objectives supported by delivery [partial-recovery],0
+14,25,Students engaged 90-100% [observation-dependent],3
+14,26,Pacing appropriate [partial-recovery],3
+14,27,Comprehensive review of key vocabulary,1
+14,28,Comprehensive review of key content concepts,1
+14,29,Regular feedback to students [partial-recovery],1
+14,30,Assessment of comprehension throughout,1
+15,1,"Content objectives clearly defined, displayed, reviewed",4
+15,2,"Language objectives clearly defined, displayed, reviewed",4
+15,3,Content concepts age-appropriate,2
+15,4,Supplementary materials used to a high degree,4
+15,5,Content adaptation to all proficiency levels,2
+15,6,Meaningful activities integrating concepts and language,4
+15,7,Concepts linked to background experiences,2
+15,8,Past learning explicitly linked,1
+15,9,Key vocabulary emphasized,1
+15,10,Speech appropriate for proficiency [partial-recovery],1
+15,11,Explanation of academic tasks clear,3
+15,12,Variety of techniques to make content clear,4
+15,13,Opportunities to use learning strategies,1
+15,14,Scaffolding techniques consistently used,3
+15,15,Higher-order thinking promoted,2
+15,16,Frequent opportunities for interaction,3
+15,17,Grouping configurations support objectives,2
+15,18,Sufficient wait time [excluded],0
+15,19,Opportunities to clarify in L1,2
+15,20,Hands-on materials/manipulatives,4
+15,21,Application activities for content + language,2
+15,22,Activities integrate all four language skills,4
+15,23,Content objectives supported by delivery [partial-recovery],4
+15,24,Language objectives supported by delivery [partial-recovery],4
+15,25,Students engaged 90-100% [observation-dependent],3
+15,26,Pacing appropriate [partial-recovery],3
+15,27,Comprehensive review of key vocabulary,0
+15,28,Comprehensive review of key content concepts,1
+15,29,Regular feedback to students [partial-recovery],0
+15,30,Assessment of comprehension throughout,3
+16,1,"Content objectives clearly defined, displayed, reviewed",2
+16,2,"Language objectives clearly defined, displayed, reviewed",1
+16,3,Content concepts age-appropriate,3
+16,4,Supplementary materials used to a high degree,3
+16,5,Content adaptation to all proficiency levels,0
+16,6,Meaningful activities integrating concepts and language,2
+16,7,Concepts linked to background experiences,2
+16,8,Past learning explicitly linked,0
+16,9,Key vocabulary emphasized,1
+16,10,Speech appropriate for proficiency [partial-recovery],1
+16,11,Explanation of academic tasks clear,1
+16,12,Variety of techniques to make content clear,3
+16,13,Opportunities to use learning strategies,0
+16,14,Scaffolding techniques consistently used,1
+16,15,Higher-order thinking promoted,2
+16,16,Frequent opportunities for interaction,1
+16,17,Grouping configurations support objectives,0
+16,18,Sufficient wait time [excluded],0
+16,19,Opportunities to clarify in L1,0
+16,20,Hands-on materials/manipulatives,2
+16,21,Application activities for content + language,0
+16,22,Activities integrate all four language skills,2
+16,23,Content objectives supported by delivery [partial-recovery],0
+16,24,Language objectives supported by delivery [partial-recovery],0
+16,25,Students engaged 90-100% [observation-dependent],2
+16,26,Pacing appropriate [partial-recovery],0
+16,27,Comprehensive review of key vocabulary,1
+16,28,Comprehensive review of key content concepts,0
+16,29,Regular feedback to students [partial-recovery],0
+16,30,Assessment of comprehension throughout,0
+17,1,"Content objectives clearly defined, displayed, reviewed",2
+17,2,"Language objectives clearly defined, displayed, reviewed",2
+17,3,Content concepts age-appropriate,2
+17,4,Supplementary materials used to a high degree,4
+17,5,Content adaptation to all proficiency levels,1
+17,6,Meaningful activities integrating concepts and language,3
+17,7,Concepts linked to background experiences,0
+17,8,Past learning explicitly linked,0
+17,9,Key vocabulary emphasized,2
+17,10,Speech appropriate for proficiency [partial-recovery],0
+17,11,Explanation of academic tasks clear,4
+17,12,Variety of techniques to make content clear,4
+17,13,Opportunities to use learning strategies,3
+17,14,Scaffolding techniques consistently used,3
+17,15,Higher-order thinking promoted,2
+17,16,Frequent opportunities for interaction,1
+17,17,Grouping configurations support objectives,0
+17,18,Sufficient wait time [excluded],0
+17,19,Opportunities to clarify in L1,2
+17,20,Hands-on materials/manipulatives,4
+17,21,Application activities for content + language,0
+17,22,Activities integrate all four language skills,3
+17,23,Content objectives supported by delivery [partial-recovery],0
+17,24,Language objectives supported by delivery [partial-recovery],0
+17,25,Students engaged 90-100% [observation-dependent],3
+17,26,Pacing appropriate [partial-recovery],0
+17,27,Comprehensive review of key vocabulary,1
+17,28,Comprehensive review of key content concepts,3
+17,29,Regular feedback to students [partial-recovery],3
+17,30,Assessment of comprehension throughout,3
+18,1,"Content objectives clearly defined, displayed, reviewed",3
+18,2,"Language objectives clearly defined, displayed, reviewed",4
+18,3,Content concepts age-appropriate,2
+18,4,Supplementary materials used to a high degree,3
+18,5,Content adaptation to all proficiency levels,2
+18,6,Meaningful activities integrating concepts and language,2
+18,7,Concepts linked to background experiences,2
+18,8,Past learning explicitly linked,0
+18,9,Key vocabulary emphasized,2
+18,10,Speech appropriate for proficiency [partial-recovery],0
+18,11,Explanation of academic tasks clear,3
+18,12,Variety of techniques to make content clear,3
+18,13,Opportunities to use learning strategies,1
+18,14,Scaffolding techniques consistently used,3
+18,15,Higher-order thinking promoted,1
+18,16,Frequent opportunities for interaction,4
+18,17,Grouping configurations support objectives,2
+18,18,Sufficient wait time [excluded],0
+18,19,Opportunities to clarify in L1,3
+18,20,Hands-on materials/manipulatives,3
+18,21,Application activities for content + language,2
+18,22,Activities integrate all four language skills,2
+18,23,Content objectives supported by delivery [partial-recovery],0
+18,24,Language objectives supported by delivery [partial-recovery],4
+18,25,Students engaged 90-100% [observation-dependent],3
+18,26,Pacing appropriate [partial-recovery],3
+18,27,Comprehensive review of key vocabulary,2
+18,28,Comprehensive review of key content concepts,1
+18,29,Regular feedback to students [partial-recovery],0
+18,30,Assessment of comprehension throughout,2
+19,1,"Content objectives clearly defined, displayed, reviewed",3
+19,2,"Language objectives clearly defined, displayed, reviewed",4
+19,3,Content concepts age-appropriate,2
+19,4,Supplementary materials used to a high degree,3
+19,5,Content adaptation to all proficiency levels,1
+19,6,Meaningful activities integrating concepts and language,4
+19,7,Concepts linked to background experiences,3
+19,8,Past learning explicitly linked,0
+19,9,Key vocabulary emphasized,1
+19,10,Speech appropriate for proficiency [partial-recovery],0
+19,11,Explanation of academic tasks clear,2
+19,12,Variety of techniques to make content clear,3
+19,13,Opportunities to use learning strategies,1
+19,14,Scaffolding techniques consistently used,3
+19,15,Higher-order thinking promoted,2
+19,16,Frequent opportunities for interaction,3
+19,17,Grouping configurations support objectives,1
+19,18,Sufficient wait time [excluded],0
+19,19,Opportunities to clarify in L1,2
+19,20,Hands-on materials/manipulatives,3
+19,21,Application activities for content + language,2
+19,22,Activities integrate all four language skills,4
+19,23,Content objectives supported by delivery [partial-recovery],4
+19,24,Language objectives supported by delivery [partial-recovery],4
+19,25,Students engaged 90-100% [observation-dependent],3
+19,26,Pacing appropriate [partial-recovery],0
+19,27,Comprehensive review of key vocabulary,1
+19,28,Comprehensive review of key content concepts,1
+19,29,Regular feedback to students [partial-recovery],0
+19,30,Assessment of comprehension throughout,3
+20,1,"Content objectives clearly defined, displayed, reviewed",2
+20,2,"Language objectives clearly defined, displayed, reviewed",3
+20,3,Content concepts age-appropriate,2
+20,4,Supplementary materials used to a high degree,4
+20,5,Content adaptation to all proficiency levels,2
+20,6,Meaningful activities integrating concepts and language,4
+20,7,Concepts linked to background experiences,2
+20,8,Past learning explicitly linked,2
+20,9,Key vocabulary emphasized,2
+20,10,Speech appropriate for proficiency [partial-recovery],0
+20,11,Explanation of academic tasks clear,3
+20,12,Variety of techniques to make content clear,4
+20,13,Opportunities to use learning strategies,4
+20,14,Scaffolding techniques consistently used,3
+20,15,Higher-order thinking promoted,2
+20,16,Frequent opportunities for interaction,4
+20,17,Grouping configurations support objectives,2
+20,18,Sufficient wait time [excluded],0
+20,19,Opportunities to clarify in L1,3
+20,20,Hands-on materials/manipulatives,1
+20,21,Application activities for content + language,0
+20,22,Activities integrate all four language skills,4
+20,23,Content objectives supported by delivery [partial-recovery],0
+20,24,Language objectives supported by delivery [partial-recovery],0
+20,25,Students engaged 90-100% [observation-dependent],3
+20,26,Pacing appropriate [partial-recovery],3
+20,27,Comprehensive review of key vocabulary,0
+20,28,Comprehensive review of key content concepts,1
+20,29,Regular feedback to students [partial-recovery],1
+20,30,Assessment of comprehension throughout,3
+21,1,"Content objectives clearly defined, displayed, reviewed",4
+21,2,"Language objectives clearly defined, displayed, reviewed",4
+21,3,Content concepts age-appropriate,4
+21,4,Supplementary materials used to a high degree,3
+21,5,Content adaptation to all proficiency levels,3
+21,6,Meaningful activities integrating concepts and language,4
+21,7,Concepts linked to background experiences,1
+21,8,Past learning explicitly linked,1
+21,9,Key vocabulary emphasized,2
+21,10,Speech appropriate for proficiency [partial-recovery],0
+21,11,Explanation of academic tasks clear,1
+21,12,Variety of techniques to make content clear,3
+21,13,Opportunities to use learning strategies,1
+21,14,Scaffolding techniques consistently used,4
+21,15,Higher-order thinking promoted,2
+21,16,Frequent opportunities for interaction,4
+21,17,Grouping configurations support objectives,1
+21,18,Sufficient wait time [excluded],0
+21,19,Opportunities to clarify in L1,3
+21,20,Hands-on materials/manipulatives,3
+21,21,Application activities for content + language,2
+21,22,Activities integrate all four language skills,4
+21,23,Content objectives supported by delivery [partial-recovery],0
+21,24,Language objectives supported by delivery [partial-recovery],4
+21,25,Students engaged 90-100% [observation-dependent],4
+21,26,Pacing appropriate [partial-recovery],3
+21,27,Comprehensive review of key vocabulary,1
+21,28,Comprehensive review of key content concepts,1
+21,29,Regular feedback to students [partial-recovery],0
+21,30,Assessment of comprehension throughout,1
+22,1,"Content objectives clearly defined, displayed, reviewed",4
+22,2,"Language objectives clearly defined, displayed, reviewed",4
+22,3,Content concepts age-appropriate,4
+22,4,Supplementary materials used to a high degree,4
+22,5,Content adaptation to all proficiency levels,3
+22,6,Meaningful activities integrating concepts and language,4
+22,7,Concepts linked to background experiences,1
+22,8,Past learning explicitly linked,3
+22,9,Key vocabulary emphasized,1
+22,10,Speech appropriate for proficiency [partial-recovery],1
+22,11,Explanation of academic tasks clear,4
+22,12,Variety of techniques to make content clear,4
+22,13,Opportunities to use learning strategies,1
+22,14,Scaffolding techniques consistently used,3
+22,15,Higher-order thinking promoted,2
+22,16,Frequent opportunities for interaction,4
+22,17,Grouping configurations support objectives,2
+22,18,Sufficient wait time [excluded],0
+22,19,Opportunities to clarify in L1,3
+22,20,Hands-on materials/manipulatives,1
+22,21,Application activities for content + language,2
+22,22,Activities integrate all four language skills,4
+22,23,Content objectives supported by delivery [partial-recovery],4
+22,24,Language objectives supported by delivery [partial-recovery],4
+22,25,Students engaged 90-100% [observation-dependent],4
+22,26,Pacing appropriate [partial-recovery],3
+22,27,Comprehensive review of key vocabulary,0
+22,28,Comprehensive review of key content concepts,1
+22,29,Regular feedback to students [partial-recovery],0
+22,30,Assessment of comprehension throughout,2
+23,1,"Content objectives clearly defined, displayed, reviewed",4
+23,2,"Language objectives clearly defined, displayed, reviewed",4
+23,3,Content concepts age-appropriate,3
+23,4,Supplementary materials used to a high degree,4
+23,5,Content adaptation to all proficiency levels,3
+23,6,Meaningful activities integrating concepts and language,4
+23,7,Concepts linked to background experiences,1
+23,8,Past learning explicitly linked,1
+23,9,Key vocabulary emphasized,1
+23,10,Speech appropriate for proficiency [partial-recovery],0
+23,11,Explanation of academic tasks clear,3
+23,12,Variety of techniques to make content clear,4
+23,13,Opportunities to use learning strategies,4
+23,14,Scaffolding techniques consistently used,3
+23,15,Higher-order thinking promoted,2
+23,16,Frequent opportunities for interaction,3
+23,17,Grouping configurations support objectives,1
+23,18,Sufficient wait time [excluded],0
+23,19,Opportunities to clarify in L1,3
+23,20,Hands-on materials/manipulatives,3
+23,21,Application activities for content + language,2
+23,22,Activities integrate all four language skills,4
+23,23,Content objectives supported by delivery [partial-recovery],4
+23,24,Language objectives supported by delivery [partial-recovery],4
+23,25,Students engaged 90-100% [observation-dependent],4
+23,26,Pacing appropriate [partial-recovery],3
+23,27,Comprehensive review of key vocabulary,0
+23,28,Comprehensive review of key content concepts,1
+23,29,Regular feedback to students [partial-recovery],1
+23,30,Assessment of comprehension throughout,1
+24,1,"Content objectives clearly defined, displayed, reviewed",3
+24,2,"Language objectives clearly defined, displayed, reviewed",4
+24,3,Content concepts age-appropriate,2
+24,4,Supplementary materials used to a high degree,4
+24,5,Content adaptation to all proficiency levels,3
+24,6,Meaningful activities integrating concepts and language,4
+24,7,Concepts linked to background experiences,1
+24,8,Past learning explicitly linked,0
+24,9,Key vocabulary emphasized,1
+24,10,Speech appropriate for proficiency [partial-recovery],0
+24,11,Explanation of academic tasks clear,2
+24,12,Variety of techniques to make content clear,3
+24,13,Opportunities to use learning strategies,4
+24,14,Scaffolding techniques consistently used,3
+24,15,Higher-order thinking promoted,2
+24,16,Frequent opportunities for interaction,3
+24,17,Grouping configurations support objectives,3
+24,18,Sufficient wait time [excluded],0
+24,19,Opportunities to clarify in L1,3
+24,20,Hands-on materials/manipulatives,3
+24,21,Application activities for content + language,2
+24,22,Activities integrate all four language skills,4
+24,23,Content objectives supported by delivery [partial-recovery],4
+24,24,Language objectives supported by delivery [partial-recovery],4
+24,25,Students engaged 90-100% [observation-dependent],2
+24,26,Pacing appropriate [partial-recovery],3
+24,27,Comprehensive review of key vocabulary,1
+24,28,Comprehensive review of key content concepts,2
+24,29,Regular feedback to students [partial-recovery],1
+24,30,Assessment of comprehension throughout,2
+25,1,"Content objectives clearly defined, displayed, reviewed",3
+25,2,"Language objectives clearly defined, displayed, reviewed",4
+25,3,Content concepts age-appropriate,4
+25,4,Supplementary materials used to a high degree,4
+25,5,Content adaptation to all proficiency levels,1
+25,6,Meaningful activities integrating concepts and language,4
+25,7,Concepts linked to background experiences,0
+25,8,Past learning explicitly linked,1
+25,9,Key vocabulary emphasized,1
+25,10,Speech appropriate for proficiency [partial-recovery],1
+25,11,Explanation of academic tasks clear,2
+25,12,Variety of techniques to make content clear,4
+25,13,Opportunities to use learning strategies,1
+25,14,Scaffolding techniques consistently used,3
+25,15,Higher-order thinking promoted,3
+25,16,Frequent opportunities for interaction,4
+25,17,Grouping configurations support objectives,2
+25,18,Sufficient wait time [excluded],0
+25,19,Opportunities to clarify in L1,1
+25,20,Hands-on materials/manipulatives,3
+25,21,Application activities for content + language,4
+25,22,Activities integrate all four language skills,4
+25,23,Content objectives supported by delivery [partial-recovery],4
+25,24,Language objectives supported by delivery [partial-recovery],4
+25,25,Students engaged 90-100% [observation-dependent],3
+25,26,Pacing appropriate [partial-recovery],0
+25,27,Comprehensive review of key vocabulary,1
+25,28,Comprehensive review of key content concepts,1
+25,29,Regular feedback to students [partial-recovery],0
+25,30,Assessment of comprehension throughout,3
+26,1,"Content objectives clearly defined, displayed, reviewed",3
+26,2,"Language objectives clearly defined, displayed, reviewed",4
+26,3,Content concepts age-appropriate,3
+26,4,Supplementary materials used to a high degree,3
+26,5,Content adaptation to all proficiency levels,1
+26,6,Meaningful activities integrating concepts and language,2
+26,7,Concepts linked to background experiences,0
+26,8,Past learning explicitly linked,0
+26,9,Key vocabulary emphasized,1
+26,10,Speech appropriate for proficiency [partial-recovery],0
+26,11,Explanation of academic tasks clear,3
+26,12,Variety of techniques to make content clear,4
+26,13,Opportunities to use learning strategies,1
+26,14,Scaffolding techniques consistently used,3
+26,15,Higher-order thinking promoted,2
+26,16,Frequent opportunities for interaction,3
+26,17,Grouping configurations support objectives,2
+26,18,Sufficient wait time [excluded],0
+26,19,Opportunities to clarify in L1,2
+26,20,Hands-on materials/manipulatives,2
+26,21,Application activities for content + language,0
+26,22,Activities integrate all four language skills,2
+26,23,Content objectives supported by delivery [partial-recovery],4
+26,24,Language objectives supported by delivery [partial-recovery],4
+26,25,Students engaged 90-100% [observation-dependent],3
+26,26,Pacing appropriate [partial-recovery],3
+26,27,Comprehensive review of key vocabulary,1
+26,28,Comprehensive review of key content concepts,1
+26,29,Regular feedback to students [partial-recovery],2
+26,30,Assessment of comprehension throughout,1
+27,1,"Content objectives clearly defined, displayed, reviewed",3
+27,2,"Language objectives clearly defined, displayed, reviewed",4
+27,3,Content concepts age-appropriate,2
+27,4,Supplementary materials used to a high degree,4
+27,5,Content adaptation to all proficiency levels,4
+27,6,Meaningful activities integrating concepts and language,2
+27,7,Concepts linked to background experiences,0
+27,8,Past learning explicitly linked,0
+27,9,Key vocabulary emphasized,0
+27,10,Speech appropriate for proficiency [partial-recovery],1
+27,11,Explanation of academic tasks clear,3
+27,12,Variety of techniques to make content clear,4
+27,13,Opportunities to use learning strategies,1
+27,14,Scaffolding techniques consistently used,4
+27,15,Higher-order thinking promoted,3
+27,16,Frequent opportunities for interaction,4
+27,17,Grouping configurations support objectives,2
+27,18,Sufficient wait time [excluded],0
+27,19,Opportunities to clarify in L1,2
+27,20,Hands-on materials/manipulatives,1
+27,21,Application activities for content + language,2
+27,22,Activities integrate all four language skills,2
+27,23,Content objectives supported by delivery [partial-recovery],0
+27,24,Language objectives supported by delivery [partial-recovery],4
+27,25,Students engaged 90-100% [observation-dependent],3
+27,26,Pacing appropriate [partial-recovery],3
+27,27,Comprehensive review of key vocabulary,1
+27,28,Comprehensive review of key content concepts,2
+27,29,Regular feedback to students [partial-recovery],1
+27,30,Assessment of comprehension throughout,3
+28,1,"Content objectives clearly defined, displayed, reviewed",2
+28,2,"Language objectives clearly defined, displayed, reviewed",1
+28,3,Content concepts age-appropriate,2
+28,4,Supplementary materials used to a high degree,2
+28,5,Content adaptation to all proficiency levels,2
+28,6,Meaningful activities integrating concepts and language,2
+28,7,Concepts linked to background experiences,2
+28,8,Past learning explicitly linked,0
+28,9,Key vocabulary emphasized,3
+28,10,Speech appropriate for proficiency [partial-recovery],0
+28,11,Explanation of academic tasks clear,1
+28,12,Variety of techniques to make content clear,1
+28,13,Opportunities to use learning strategies,1
+28,14,Scaffolding techniques consistently used,2
+28,15,Higher-order thinking promoted,2
+28,16,Frequent opportunities for interaction,0
+28,17,Grouping configurations support objectives,0
+28,18,Sufficient wait time [excluded],0
+28,19,Opportunities to clarify in L1,2
+28,20,Hands-on materials/manipulatives,2
+28,21,Application activities for content + language,0
+28,22,Activities integrate all four language skills,2
+28,23,Content objectives supported by delivery [partial-recovery],0
+28,24,Language objectives supported by delivery [partial-recovery],0
+28,25,Students engaged 90-100% [observation-dependent],3
+28,26,Pacing appropriate [partial-recovery],0
+28,27,Comprehensive review of key vocabulary,1
+28,28,Comprehensive review of key content concepts,1
+28,29,Regular feedback to students [partial-recovery],1
+28,30,Assessment of comprehension throughout,1
+29,1,"Content objectives clearly defined, displayed, reviewed",2
+29,2,"Language objectives clearly defined, displayed, reviewed",0
+29,3,Content concepts age-appropriate,2
+29,4,Supplementary materials used to a high degree,3
+29,5,Content adaptation to all proficiency levels,1
+29,6,Meaningful activities integrating concepts and language,3
+29,7,Concepts linked to background experiences,2
+29,8,Past learning explicitly linked,0
+29,9,Key vocabulary emphasized,2
+29,10,Speech appropriate for proficiency [partial-recovery],1
+29,11,Explanation of academic tasks clear,3
+29,12,Variety of techniques to make content clear,4
+29,13,Opportunities to use learning strategies,1
+29,14,Scaffolding techniques consistently used,3
+29,15,Higher-order thinking promoted,1
+29,16,Frequent opportunities for interaction,1
+29,17,Grouping configurations support objectives,1
+29,18,Sufficient wait time [excluded],0
+29,19,Opportunities to clarify in L1,1
+29,20,Hands-on materials/manipulatives,3
+29,21,Application activities for content + language,0
+29,22,Activities integrate all four language skills,3
+29,23,Content objectives supported by delivery [partial-recovery],0
+29,24,Language objectives supported by delivery [partial-recovery],0
+29,25,Students engaged 90-100% [observation-dependent],3
+29,26,Pacing appropriate [partial-recovery],3
+29,27,Comprehensive review of key vocabulary,1
+29,28,Comprehensive review of key content concepts,2
+29,29,Regular feedback to students [partial-recovery],1
+29,30,Assessment of comprehension throughout,3
+30,1,"Content objectives clearly defined, displayed, reviewed",3
+30,2,"Language objectives clearly defined, displayed, reviewed",4
+30,3,Content concepts age-appropriate,3
+30,4,Supplementary materials used to a high degree,4
+30,5,Content adaptation to all proficiency levels,2
+30,6,Meaningful activities integrating concepts and language,3
+30,7,Concepts linked to background experiences,0
+30,8,Past learning explicitly linked,0
+30,9,Key vocabulary emphasized,2
+30,10,Speech appropriate for proficiency [partial-recovery],0
+30,11,Explanation of academic tasks clear,3
+30,12,Variety of techniques to make content clear,4
+30,13,Opportunities to use learning strategies,3
+30,14,Scaffolding techniques consistently used,3
+30,15,Higher-order thinking promoted,1
+30,16,Frequent opportunities for interaction,4
+30,17,Grouping configurations support objectives,2
+30,18,Sufficient wait time [excluded],0
+30,19,Opportunities to clarify in L1,2
+30,20,Hands-on materials/manipulatives,3
+30,21,Application activities for content + language,2
+30,22,Activities integrate all four language skills,3
+30,23,Content objectives supported by delivery [partial-recovery],4
+30,24,Language objectives supported by delivery [partial-recovery],4
+30,25,Students engaged 90-100% [observation-dependent],4
+30,26,Pacing appropriate [partial-recovery],3
+30,27,Comprehensive review of key vocabulary,1
+30,28,Comprehensive review of key content concepts,1
+30,29,Regular feedback to students [partial-recovery],1
+30,30,Assessment of comprehension throughout,1
+31,1,"Content objectives clearly defined, displayed, reviewed",4
+31,2,"Language objectives clearly defined, displayed, reviewed",4
+31,3,Content concepts age-appropriate,2
+31,4,Supplementary materials used to a high degree,4
+31,5,Content adaptation to all proficiency levels,3
+31,6,Meaningful activities integrating concepts and language,4
+31,7,Concepts linked to background experiences,3
+31,8,Past learning explicitly linked,1
+31,9,Key vocabulary emphasized,1
+31,10,Speech appropriate for proficiency [partial-recovery],0
+31,11,Explanation of academic tasks clear,3
+31,12,Variety of techniques to make content clear,4
+31,13,Opportunities to use learning strategies,4
+31,14,Scaffolding techniques consistently used,4
+31,15,Higher-order thinking promoted,2
+31,16,Frequent opportunities for interaction,3
+31,17,Grouping configurations support objectives,3
+31,18,Sufficient wait time [excluded],0
+31,19,Opportunities to clarify in L1,4
+31,20,Hands-on materials/manipulatives,3
+31,21,Application activities for content + language,0
+31,22,Activities integrate all four language skills,4
+31,23,Content objectives supported by delivery [partial-recovery],0
+31,24,Language objectives supported by delivery [partial-recovery],0
+31,25,Students engaged 90-100% [observation-dependent],4
+31,26,Pacing appropriate [partial-recovery],4
+31,27,Comprehensive review of key vocabulary,2
+31,28,Comprehensive review of key content concepts,2
+31,29,Regular feedback to students [partial-recovery],1
+31,30,Assessment of comprehension throughout,3
+32,1,"Content objectives clearly defined, displayed, reviewed",2
+32,2,"Language objectives clearly defined, displayed, reviewed",3
+32,3,Content concepts age-appropriate,4
+32,4,Supplementary materials used to a high degree,3
+32,5,Content adaptation to all proficiency levels,1
+32,6,Meaningful activities integrating concepts and language,4
+32,7,Concepts linked to background experiences,0
+32,8,Past learning explicitly linked,1
+32,9,Key vocabulary emphasized,1
+32,10,Speech appropriate for proficiency [partial-recovery],0
+32,11,Explanation of academic tasks clear,3
+32,12,Variety of techniques to make content clear,3
+32,13,Opportunities to use learning strategies,1
+32,14,Scaffolding techniques consistently used,3
+32,15,Higher-order thinking promoted,3
+32,16,Frequent opportunities for interaction,3
+32,17,Grouping configurations support objectives,3
+32,18,Sufficient wait time [excluded],0
+32,19,Opportunities to clarify in L1,2
+32,20,Hands-on materials/manipulatives,3
+32,21,Application activities for content + language,0
+32,22,Activities integrate all four language skills,4
+32,23,Content objectives supported by delivery [partial-recovery],0
+32,24,Language objectives supported by delivery [partial-recovery],0
+32,25,Students engaged 90-100% [observation-dependent],3
+32,26,Pacing appropriate [partial-recovery],3
+32,27,Comprehensive review of key vocabulary,1
+32,28,Comprehensive review of key content concepts,2
+32,29,Regular feedback to students [partial-recovery],0
+32,30,Assessment of comprehension throughout,2
+33,1,"Content objectives clearly defined, displayed, reviewed",4
+33,2,"Language objectives clearly defined, displayed, reviewed",4
+33,3,Content concepts age-appropriate,2
+33,4,Supplementary materials used to a high degree,3
+33,5,Content adaptation to all proficiency levels,3
+33,6,Meaningful activities integrating concepts and language,4
+33,7,Concepts linked to background experiences,3
+33,8,Past learning explicitly linked,0
+33,9,Key vocabulary emphasized,3
+33,10,Speech appropriate for proficiency [partial-recovery],0
+33,11,Explanation of academic tasks clear,2
+33,12,Variety of techniques to make content clear,3
+33,13,Opportunities to use learning strategies,1
+33,14,Scaffolding techniques consistently used,2
+33,15,Higher-order thinking promoted,1
+33,16,Frequent opportunities for interaction,3
+33,17,Grouping configurations support objectives,1
+33,18,Sufficient wait time [excluded],0
+33,19,Opportunities to clarify in L1,4
+33,20,Hands-on materials/manipulatives,1
+33,21,Application activities for content + language,0
+33,22,Activities integrate all four language skills,4
+33,23,Content objectives supported by delivery [partial-recovery],4
+33,24,Language objectives supported by delivery [partial-recovery],0
+33,25,Students engaged 90-100% [observation-dependent],4
+33,26,Pacing appropriate [partial-recovery],3
+33,27,Comprehensive review of key vocabulary,2
+33,28,Comprehensive review of key content concepts,2
+33,29,Regular feedback to students [partial-recovery],1
+33,30,Assessment of comprehension throughout,2
+34,1,"Content objectives clearly defined, displayed, reviewed",2
+34,2,"Language objectives clearly defined, displayed, reviewed",4
+34,3,Content concepts age-appropriate,2
+34,4,Supplementary materials used to a high degree,3
+34,5,Content adaptation to all proficiency levels,2
+34,6,Meaningful activities integrating concepts and language,4
+34,7,Concepts linked to background experiences,3
+34,8,Past learning explicitly linked,1
+34,9,Key vocabulary emphasized,3
+34,10,Speech appropriate for proficiency [partial-recovery],1
+34,11,Explanation of academic tasks clear,1
+34,12,Variety of techniques to make content clear,4
+34,13,Opportunities to use learning strategies,4
+34,14,Scaffolding techniques consistently used,3
+34,15,Higher-order thinking promoted,4
+34,16,Frequent opportunities for interaction,3
+34,17,Grouping configurations support objectives,2
+34,18,Sufficient wait time [excluded],0
+34,19,Opportunities to clarify in L1,3
+34,20,Hands-on materials/manipulatives,3
+34,21,Application activities for content + language,0
+34,22,Activities integrate all four language skills,3
+34,23,Content objectives supported by delivery [partial-recovery],0
+34,24,Language objectives supported by delivery [partial-recovery],4
+34,25,Students engaged 90-100% [observation-dependent],3
+34,26,Pacing appropriate [partial-recovery],1
+34,27,Comprehensive review of key vocabulary,0
+34,28,Comprehensive review of key content concepts,1
+34,29,Regular feedback to students [partial-recovery],0
+34,30,Assessment of comprehension throughout,1
+35,1,"Content objectives clearly defined, displayed, reviewed",1
+35,2,"Language objectives clearly defined, displayed, reviewed",0
+35,3,Content concepts age-appropriate,2
+35,4,Supplementary materials used to a high degree,1
+35,5,Content adaptation to all proficiency levels,0
+35,6,Meaningful activities integrating concepts and language,1
+35,7,Concepts linked to background experiences,0
+35,8,Past learning explicitly linked,0
+35,9,Key vocabulary emphasized,0
+35,10,Speech appropriate for proficiency [partial-recovery],0
+35,11,Explanation of academic tasks clear,1
+35,12,Variety of techniques to make content clear,1
+35,13,Opportunities to use learning strategies,0
+35,14,Scaffolding techniques consistently used,2
+35,15,Higher-order thinking promoted,1
+35,16,Frequent opportunities for interaction,0
+35,17,Grouping configurations support objectives,0
+35,18,Sufficient wait time [excluded],0
+35,19,Opportunities to clarify in L1,0
+35,20,Hands-on materials/manipulatives,0
+35,21,Application activities for content + language,0
+35,22,Activities integrate all four language skills,1
+35,23,Content objectives supported by delivery [partial-recovery],0
+35,24,Language objectives supported by delivery [partial-recovery],0
+35,25,Students engaged 90-100% [observation-dependent],1
+35,26,Pacing appropriate [partial-recovery],0
+35,27,Comprehensive review of key vocabulary,0
+35,28,Comprehensive review of key content concepts,1
+35,29,Regular feedback to students [partial-recovery],0
+35,30,Assessment of comprehension throughout,0
