@@ -1199,3 +1199,645 @@ def score_activity(text: str) -> tuple[dict[int, int], dict[int, dict[str, Any]]
         diags[fnum] = diag
     final_scores = apply_cross_feature_caps(raw_scores)
     return final_scores, diags
+
+
+# ---------------------------------------------------------------------------
+# Evidence extraction + plain-language rationale
+# ---------------------------------------------------------------------------
+# Per-feature category → regex map. Mirrors (intentionally, for transparency)
+# the patterns embedded inside each `score_fN_*` above. The Streamlit
+# inspector uses this registry to (a) pull text excerpts that drove the
+# algorithm's decision and (b) describe in plain English why the score was
+# assigned. If you add or modify a scoring function, update the matching
+# entry here so the inspector evidence stays in sync.
+
+FEATURE_PATTERNS: dict[int, dict[str, list[str]]] = {
+    1: {
+        "header": [
+            r"\bcontent\s+objective[s]?\s*[:\-]",
+            r"\blearning\s+(objective|target|goal)[s]?\s*[:\-]",
+        ],
+        "swbat": [
+            r"\bSWBAT\b",
+            r"\bstudents?\s+will\s+be\s+able\s+to\b",
+            r"\bI\s+(can|will\s+be\s+able\s+to)\b",
+        ],
+        "verb": [
+            r"\b(analyze|identify|describe|explain|compare|evaluate|design|"
+            r"investigate|construct|develop|interpret|model)\b"
+        ],
+        "display": [
+            r"\b(post|display|review\s+at\s+(start|end)|visible|on\s+the\s+board)\b"
+        ],
+    },
+    2: {
+        "header": [r"\blanguage\s+objective[s]?\s*[:\-]"],
+        "lang_function": [
+            r"\b(use|describe|explain|compare|argue|justify)\b[^\n]{0,80}"
+            r"\b(sentence\s+frames?|academic\s+language|in\s+(oral|written))\b"
+        ],
+        "domain_target": [
+            r"\b(academic\s+(vocabulary|language)|sentence\s+structure|"
+            r"discourse\s+function|language\s+(skill|use|practice))\b"
+        ],
+        "display": [
+            r"\b(post|display|review\s+at\s+(start|end)|visible|on\s+the\s+board)\b"
+            r"[^\n]{0,80}\blanguage"
+        ],
+        "frames": [r"\bsentence\s+(frames?|stems?|starters?)\b"],
+    },
+    3: {
+        "grade_level": [
+            r"\b(grade|grade\s+level)\s*[:\-]?\s*(K|kindergarten|\d{1,2})\b"
+        ],
+        "standards": [
+            r"\b\d\.[A-Z]\d[A-Z]\d\.\d|\bNGSS\b|\bCCSS\b|\bMS[\-\s]\w+|"
+            r"\bHS[\-\s]\w+|\bAZ\s+ELP\b"
+        ],
+    },
+    4: {
+        "visuals": [
+            r"\b(visual[s]?|image[s]?|diagram[s]?|chart[s]?|poster[s]?|anchor\s+chart)\b"
+        ],
+        "multimedia": [
+            r"\b(video[s]?|audio|recording|animation|simulation|interactive)\b"
+        ],
+        "models_realia": [
+            r"\b(model[s]?|realia|specimen[s]?|artifact[s]?|3D|hands[\-\s]on)\b"
+        ],
+        "texts": [r"\b(text[s]?|article[s]?|reading|handout[s]?|worksheet[s]?)\b"],
+        "technology": [
+            r"\b(computer[s]?|tablet[s]?|app[s]?|software|website|digital)\b"
+        ],
+        "manipulatives": [r"\b(manipulative[s]?|blocks?|cards?|tiles?|cubes?)\b"],
+        "organizers": [
+            r"\b(graphic\s+organizer[s]?|venn|t[\-\s]chart|concept\s+map|flow\s*chart)\b"
+        ],
+    },
+    5: {
+        "proficiency_naming": [
+            r"\b(beginning|emerging|developing|expanding|bridging|reaching|"
+            r"elementary|intermediate|advanced)\s+(proficiency|level|learner)"
+        ],
+        "tiered": [
+            r"\b(tiered|leveled|differentiated|scaffolded\s+versions?|"
+            r"three\s+versions?|multiple\s+levels?)\b"
+        ],
+        "modified_text": [r"\b(modified\s+text|simplified\s+text|adapted\s+text)\b"],
+        "l1_support": [
+            r"\b(translation|home\s+language|L1|native\s+language|bilingual)\b"
+        ],
+    },
+    6: {
+        "reading": [r"\b(read(ing)?|article[s]?|text[s]?|passage|book[s]?)\b"],
+        "writing": [
+            r"\b(writ(e|ing)|journal|essay|notes?|note[\-\s]?taking|"
+            r"reflection|paragraph|report|describe\s+in\s+writing)\b"
+        ],
+        "listening": [
+            r"\b(listen(ing)?|video[s]?|audio|lecture|presentation|podcast)\b"
+        ],
+        "speaking": [
+            r"\b(speak(ing)?|discuss(ion)?|share\s+out|present(ation)?|"
+            r"oral|talk|conversation|debate)\b"
+        ],
+        "concept_tied": [
+            r"\b(concept|content|topic|standard|objective|principle)\b"
+        ],
+    },
+    7: {
+        "personal_experience": [
+            r"\b(think\s+about\s+a\s+time|have\s+you\s+ever|"
+            r"in\s+your\s+(experience|life|community|home|family|culture)|"
+            r"remember\s+a\s+time|when\s+you\s+were)\b"
+        ],
+        "cultural": [
+            r"\b(cultur(e|al)|tradition[s]?|heritage|background|community|"
+            r"funds?\s+of\s+knowledge)\b"
+        ],
+        "real_world": [
+            r"\b(real[\-\s]world|everyday|daily\s+life|familiar|"
+            r"relevant\s+to\s+(students|their\s+lives))\b"
+        ],
+        "brainstorm_share": [
+            r"\b(brainstorm|share\s+(your|out|with))\b[^\n]{0,40}"
+            r"\b(experience|memory|home|culture|tradition)\b"
+        ],
+    },
+    8: {
+        "time_deictics": [
+            r"\b(yesterday|last\s+(week|class|lesson|time)|previously|"
+            r"earlier\s+(we|today)|recall|as\s+we\s+(discussed|learned|saw)|"
+            r"building\s+on)\b"
+        ],
+        "prior_knowledge": [
+            r"\b(prior\s+knowledge|what\s+(you|do\s+you)\s+(already\s+)?know|"
+            r"activate|access\s+prior)\b"
+        ],
+        "word_wall_anchor": [r"\b(word\s+wall|anchor\s+chart|previous(ly)?)\b"],
+        "spiral_review": [
+            r"\b(review\s+(of|the)|recap|warm[\-\s]up|do\s+now|bell\s+ringer)\b"
+        ],
+    },
+    9: {
+        "header": [r"\b(vocabulary|key\s+(terms?|vocabulary|words?))\s*[:\-]"],
+        "preteach": [
+            r"\bpre[\-\s]?teach",
+            r"\bintroduce[^\n]{0,40}\b(vocabulary|terms?|words?)\b",
+        ],
+        "word_wall": [
+            r"\bword\s+wall",
+            r"\bvocabulary\s+(wall|chart|list|bank)",
+        ],
+        "repetition": [
+            r"\buse[^\n]{0,40}\bnew\s+(words?|vocabulary|terms?)\b",
+            r"\brepeat(ed)?\s+(exposure|use)\b",
+            r"\bpractice[^\n]{0,40}\bvocabulary\b",
+        ],
+        "visual_vocab": [
+            r"\bflash\s*cards?\b",
+            r"\bpictures?\s+(with|next\s+to)\s+(words?|terms?)\b",
+            r"\bvisual[^\n]{0,40}\bvocabulary\b",
+        ],
+        "quoted_terms": [
+            r"['\"][a-zA-Z\-]{4,}['\"]",
+            r"\*\*[a-zA-Z\-]{4,}\*\*",
+        ],
+    },
+    10: {
+        "captions": [r"\b(closed\s+caption[s]?|transcript[s]?|subtitle[s]?)\b"],
+        "slower_speech": [
+            r"\b(slower|slow\s+down|enunciate|clearly\s+pronounce|speak\s+slowly)\b"
+        ],
+        "simplified_syntax": [
+            r"\b(simple\s+(sentence|language)|short\s+sentences|simplified)\b"
+        ],
+        "paraphrase": [r"\b(paraphrase|restate|rephrase|in\s+other\s+words)\b"],
+        "comprehensible": [
+            r"\b(comprehensible\s+input|comprehensible\s+language)\b"
+        ],
+        "protocol": [r"\b(speech\s+modification|teacher\s+talk\s+protocol)\b"],
+    },
+    11: {
+        "numbered_steps": [
+            r"\bstep\s*\d+\b",
+            r"(?m)^\s*\d+\.\s",
+            r"\bfirst\b[^\n]{0,80}\bthen\b[^\n]{0,80}\b(finally|last)\b",
+        ],
+        "time_durations": [r"\(\s*\d+\s*minutes?\s*\)", r"\b\d+\s*minutes?\b"],
+        "modeling": [
+            r"\b(model|demonstrate|show\s+how|"
+            r"I\s+do[^\n]{0,30}we\s+do[^\n]{0,30}you\s+do|gradual\s+release)\b"
+        ],
+        "rubric_expectations": [
+            r"\b(rubric|criteria|success\s+criteria|expectations|directions)\b"
+        ],
+    },
+    12: {
+        "visuals": [r"\b(visual[s]?|image[s]?|diagram[s]?|chart[s]?|poster[s]?)\b"],
+        "multimedia": [r"\b(video[s]?|audio|animation|simulation|interactive)\b"],
+        "models_realia": [r"\b(model[s]?|realia|specimen[s]?|3D|hands[\-\s]on)\b"],
+        "texts": [r"\b(text[s]?|article[s]?|reading|handout[s]?)\b"],
+        "technology": [r"\b(computer[s]?|tablet[s]?|app[s]?|software|digital)\b"],
+        "modeling": [r"\b(model|demonstrate|think[\-\s]?aloud)\b"],
+        "gestures": [
+            r"\b(gestures?|body\s+language|TPR|total\s+physical\s+response)\b"
+        ],
+    },
+    13: {
+        "metacognitive": [
+            r"\b(metacogniti(ve|on)|"
+            r"think\s+about\s+(your|how)\s+(thinking|you\s+learn)|"
+            r"reflection|reflect\s+on)\b"
+        ],
+        "cognitive": [
+            r"\b(predict|summariz|infer|visualiz|connect|question.*text)\b"
+        ],
+        "note_taking": [
+            r"\b(notes?|note[\-\s]?taking|interactive\s+notebook|graphic\s+organizer)\b"
+        ],
+        "self_monitoring": [
+            r"\b(self[\-\s]?(assess|monitor|check)|exit\s+ticket|reflection)\b"
+        ],
+    },
+    14: {
+        "frames": [
+            r"\bsentence\s+(frames?|stems?|starters?)\b",
+            r"_____",
+        ],
+        "word_banks": [r"\b(word\s+bank|glossary|vocabulary\s+list)\b"],
+        "modeling": [
+            r"\b(model|demonstrate|think[\-\s]?aloud|teacher\s+models?)\b"
+        ],
+        "organizers": [
+            r"\b(graphic\s+organizer|anchor\s+chart|t[\-\s]chart|venn|concept\s+map)\b"
+        ],
+        "gradual_release": [
+            r"\bI\s+do[^\n]{0,30}we\s+do[^\n]{0,30}you\s+do\b",
+            r"\bgradual\s+release\b",
+        ],
+        "chunking": [r"\b(chunk|partial\s+outline|guided\s+notes|cloze)\b"],
+    },
+    15: {
+        "higher_bloom": [
+            r"\b(analyze|evaluate|create|synthesi[sz]e|justify|argue|design|"
+            r"hypothesi[sz]e|critique|compose|construct|formulate|appraise|defend)\b"
+        ],
+        "lower_bloom": [
+            r"\b(remember|recall|list|name|identify|state|define|recognize|repeat)\b"
+        ],
+        "open_questions": [
+            r"\b(how\s+(does|do|might|could)|why\s+(does|do|might|is|are)|"
+            r"what\s+if|what\s+would\s+happen)\b"
+        ],
+        "compare_tasks": [r"\b(compare|contrast|differen(ce|tiate))\b"],
+        "q_header": [
+            r"\b(open[\-\s]?ended|analytical|reflective|exploratory|"
+            r"interpret(ive|ation))\s+questions?\b"
+        ],
+        "argumentation": [r"\b(argue|justify|defend|claim.*evidence|CER\b)\b"],
+    },
+    16: {
+        "pair": [r"\b(pair[s]?|partner[s]?|in\s+pairs|with\s+a\s+partner)\b"],
+        "small_group": [
+            r"\b(small\s+group[s]?|in\s+groups?|group\s+of\s+\d|group\s+work)\b"
+        ],
+        "whole_class": [
+            r"\b(whole[\-\s]class|class\s+discussion|share\s+out|table\s+talk)\b"
+        ],
+        "elaborated": [
+            r"\b(explain[^\n]{0,30}reasoning|extend[^\n]{0,30}answer|elaborate|"
+            r"why\s+do\s+you\s+think)\b"
+        ],
+        "protocols": [
+            r"\b(turn\s+and\s+talk|think[\-\s]?pair[\-\s]?share|jigsaw|"
+            r"fishbowl|gallery\s+walk)\b"
+        ],
+    },
+    17: {
+        "rationale": [r"\bgroup(ing|ed)\s+(by|to|for|based\s+on)\b"],
+        "multiple_types": [
+            r"\b(whole[\-\s]class|small\s+group|pair[s]?|partner[s]?|individual)\b"
+        ],
+        "heterogeneous": [
+            r"\b(mixed[\-\s]?(level|proficiency|ability)|heterogen|"
+            r"with\s+(native\s+English\s+)?speakers)\b"
+        ],
+        "roles": [r"\b(role[s]?|recorder|reporter|facilitator|timekeeper)\b"],
+    },
+    18: {
+        "wait_time": [r"\b(wait\s+time|think\s+time)\b"],
+        "wait_duration": [
+            r"\b(wait|think)\s+time[^\n]{0,40}\d+\s*(seconds?|minutes?)"
+        ],
+    },
+    19: {
+        "l1_use": [
+            r"\b(L1|home\s+language|native\s+language|first\s+language|"
+            r"primary\s+language)\b"
+        ],
+        "bilingual_peer": [
+            r"\b(bilingual\s+(peer|aide|partner|buddy)|"
+            r"translation\s+(partner|peer))\b"
+        ],
+        "translated_materials": [
+            r"\b(translated|translation|"
+            r"bilingual\s+(text|materials?|glossary|resources?))\b"
+        ],
+        "l1_brainstorm": [
+            r"\b(discuss[^\n]{0,30}home\s+language|brainstorm[^\n]{0,30}L1|"
+            r"use[^\n]{0,30}native\s+language\s+to)\b"
+        ],
+    },
+    20: {
+        "lab_equipment": [
+            r"\b(beaker|flask|microscope|thermometer|balance|scale|test\s+tube|"
+            r"petri\s+dish|graduated\s+cylinder|hand\s+lens|magnifier|magnet[s]?)\b"
+        ],
+        "construction": [
+            r"\b(foam|clay|cardboard|paper|string|rope|tape|glue|popsicle|recycled)\b"
+        ],
+        "manipulatives": [
+            r"\b(blocks?|cubes?|tiles?|counters?|cards?|chips|bead[s]?)\b"
+        ],
+        "kits": [r"\b(FOSS|STC|Amplify|Mystery\s+Science|kit)\b"],
+        "realia": [
+            r"\b(realia|specimen[s]?|live|actual\s+object[s]?|real\s+(thing|object))\b"
+        ],
+        "action_verbs": [
+            r"\b(build|construct|measure|observe|dissect|manipulate|test)\b"
+        ],
+    },
+    21: {
+        "content_application": [
+            r"\b(apply[^\n]{0,40}\b(concept|principle|idea|content)|"
+            r"new\s+context|real[\-\s]world\s+(application|task)|"
+            r"transfer|extend[^\n]{0,40}(idea|concept))\b"
+        ],
+        "language_application": [
+            r"\b(use\s+(academic\s+language|new\s+vocabulary|sentence\s+frames?)|"
+            r"oral\s+presentation|written\s+explanation|"
+            r"convey[^\n]{0,40}(content|concept))\b"
+        ],
+    },
+    22: {
+        "reading": [r"\b(read(ing)?|article[s]?|text[s]?|passage|book[s]?)\b"],
+        "writing": [
+            r"\b(writ(e|ing)|journal|essay|notes?|paragraph|report|label)\b"
+        ],
+        "listening": [
+            r"\b(listen(ing)?|video[s]?|audio|lecture|presentation|podcast)\b"
+        ],
+        "speaking": [
+            r"\b(speak(ing)?|discuss(ion)?|share\s+out|present(ation)?|"
+            r"oral|talk|conversation|debate)\b"
+        ],
+    },
+    23: {
+        "content_objective_header": [
+            r"(?:content\s+objective|learning\s+(?:objective|target|goal))s?\s*[:\-]\s*"
+            r"([^\n\.]{10,300})"
+        ],
+        "step_markers": [r"(?im)\bstep\s*\d+", r"(?m)^\s*\d+\.\s"],
+    },
+    24: {
+        "language_objective_header": [
+            r"language\s+objective[s]?\s*[:\-]\s*([^\n\.]{10,300})"
+        ],
+        "step_markers": [r"(?im)\bstep\s*\d+", r"(?m)^\s*\d+\.\s"],
+    },
+    25: {
+        "active_verbs": [
+            r"\bstudents?\s+(will|are|do|create|build|investigate|design|"
+            r"explore|present|discuss|analyze|construct)\b"
+        ],
+        "pacing": [r"\b\d+\s*minutes?\b"],
+        "multiple_phases": [
+            r"\b(step\s*[2-9]|phase\s*[2-9]|then|next|after\s+that|finally)\b"
+        ],
+        "long_passive": [
+            r"\bwatch\s+the\s+entire\s+video|silent\s+reading\s+for\s+\d+"
+        ],
+    },
+    26: {
+        "time_markers": [r"\b\d+\s*minutes?\b"],
+        "total_duration": [
+            r"\b(total\s+(time|duration)|class\s+period|\d+\s*minute\s+lesson)\b"
+        ],
+        "differentiation": [
+            r"\b(fast\s+finishers?|early\s+finishers?|extension|additional\s+time)\b"
+        ],
+    },
+    27: {
+        "closing_vocab_review": [r"\b(vocabulary|key\s+(terms?|words?))\b"],
+        "vocab_assessment": [
+            r"\b(vocab(ulary)?\s+(test|quiz|assessment|check)|matching|"
+            r"fill[\-\s]in[\-\s]the[\-\s]blank)\b"
+        ],
+        "word_wall_close": [
+            r"\b(word\s+wall|anchor\s+chart|vocabulary\s+(wall|chart))\b"
+        ],
+        "repeated_use": [
+            r"\b(repeat(ed)?\s+(exposure|use)|practice[^\n]{0,30}vocabulary|"
+            r"use\s+new\s+(words?|terms?))\b"
+        ],
+    },
+    28: {
+        "closing_summary": [
+            r"\b(summar(y|ize)|recap|review|wrap[\-\s]up|conclude|reflection)\b"
+        ],
+        "concept_check": [
+            r"\b(check[s]?\s+for\s+understanding|exit\s+ticket|comprehension\s+check)\b"
+        ],
+        "objective_link": [r"\b(objective|goal|target)\b"],
+        "student_articulation": [
+            r"\bstudents?\s+(explain|share|present|articulate|reflect\s+on)\s+"
+            r"(what|their|the)\b"
+        ],
+    },
+    29: {
+        "formative": [
+            r"\b(feedback|formative\s+assessment|"
+            r"check\s+for\s+understanding|monitoring)\b"
+        ],
+        "rubric": [r"\b(rubric|criteria|success\s+criteria)\b"],
+        "peer_feedback": [
+            r"\b(peer\s+(feedback|review|response)|partner\s+check)\b"
+        ],
+        "throughout": [
+            r"\b(throughout|ongoing|continuous|frequent(ly)?)\s+"
+            r"(feedback|check|monitor)\b"
+        ],
+    },
+    30: {
+        "multiple_moments": [
+            r"\b(check[s]?\s+for\s+understanding|formative|exit\s+ticket|"
+            r"quick\s+(check|write)|thumbs\s+(up|down))\b"
+        ],
+        "summative": [
+            r"\b(summative|final\s+assessment|test|quiz|"
+            r"end[\-\s]of[\-\s](unit|lesson))\b"
+        ],
+        "tied_to_objectives": [
+            r"\bassess(ment)?[^\n]{0,80}(objective|goal|target)\b"
+        ],
+        "diverse_oral": [r"\boral|verbal\b"],
+        "diverse_written": [r"\bwritten|writ(e|ing)\b"],
+        "diverse_performance": [
+            r"\bperformance|present(ation)?|demonstrat"
+        ],
+    },
+}
+
+
+def _snippet(text: str, span: tuple[int, int], window: int = 50) -> str:
+    """Return a single-line excerpt of `text` around `span` with ellipses."""
+    start = max(0, span[0] - window)
+    end = min(len(text), span[1] + window)
+    snippet = re.sub(r"\s+", " ", text[start:end]).strip()
+    if start > 0:
+        snippet = "…" + snippet
+    if end < len(text):
+        snippet = snippet + "…"
+    return snippet
+
+
+def extract_evidence(
+    text: str,
+    fnum: int,
+    max_per_category: int = 2,
+    window: int = 50,
+) -> list[dict[str, str]]:
+    """Find regex matches for feature `fnum` and return excerpts of `text`.
+
+    Each item is ``{"category": str, "match": str, "snippet": str}``.
+    De-duplicated by snippet so the same passage isn't shown multiple times.
+    """
+    if not text or fnum not in FEATURE_PATTERNS:
+        return []
+    out: list[dict[str, str]] = []
+    seen: set[str] = set()
+    for category, patterns in FEATURE_PATTERNS[fnum].items():
+        cat_count = 0
+        for pattern in patterns:
+            if cat_count >= max_per_category:
+                break
+            for m in re.finditer(pattern, text, re.IGNORECASE):
+                if cat_count >= max_per_category:
+                    break
+                snippet = _snippet(text, m.span(), window=window)
+                key = (category, snippet)
+                if key in seen:
+                    continue
+                seen.add(key)
+                out.append(
+                    {
+                        "category": category,
+                        "match": m.group(0).strip(),
+                        "snippet": snippet,
+                    }
+                )
+                cat_count += 1
+    return out
+
+
+def _yes_no(b: Any) -> str:
+    return "yes" if b else "no"
+
+
+def rationale(fnum: int, score: int, diag: dict[str, Any]) -> str:
+    """Plain-English explanation of why feature `fnum` got `score` for this text.
+
+    Translates the diagnostics dict into a short sentence so a human rater can
+    see at a glance what drove the algorithm's decision.
+    """
+    if score == 0 and not any(
+        diag.get(k) for k in ("hits", "distinct", "detected", "content_app",
+                              "language_app", "multiple_moments")
+    ):
+        return "Score 0 — no matching indicators found in the activity text."
+
+    bits: list[str] = []
+
+    # Generic _generic_score-style diagnostics
+    if "distinct" in diag:
+        d = diag["distinct"]
+        bits.append(
+            f"{d} distinct indicator categor{'y' if d == 1 else 'ies'} matched"
+        )
+    if "hits" in diag:
+        bits.append(f"{diag['hits']} total keyword/phrase hits")
+    if "sec_cov" in diag:
+        bits.append(
+            f"present in {diag['sec_cov']} of 3 sections (opening / middle / closing)"
+        )
+    if diag.get("integration"):
+        bits.append("the integration marker was found")
+    if diag.get("cap_applied"):
+        bits.append("score capped because the structural header is missing")
+    if diag.get("partial_recovery_cap_applied"):
+        bits.append(
+            "partial-recovery cap applied (no explicit speech-modification protocol)"
+        )
+    if diag.get("only_video_cap"):
+        bits.append("capped: only video evidence, no physical action")
+
+    # Per-feature specifics where the diagnostics differ from the generic shape
+    if fnum == 3:
+        f3_bits = []
+        if diag.get("has_grade"):
+            f3_bits.append("explicit grade level stated")
+        if diag.get("has_standard"):
+            f3_bits.append("standards/curriculum reference present")
+        fk = diag.get("fk")
+        if fk is not None:
+            f3_bits.append(f"Flesch–Kincaid readability ≈ grade {fk}")
+        if f3_bits:
+            bits.append("; ".join(f3_bits))
+    elif fnum in (6, 22):
+        skills = [
+            label
+            for key, label in (
+                ("R", "Reading"),
+                ("W", "Writing"),
+                ("L", "Listening"),
+                ("S", "Speaking"),
+            )
+            if diag.get(key)
+        ]
+        if skills:
+            bits.append(f"language modalities present: {', '.join(skills)}")
+        if "concept_tied" in diag and not diag["concept_tied"]:
+            bits.append("activity not clearly tied to a content concept")
+    elif fnum == 15:
+        bits.append(
+            f"higher-Bloom verbs={diag.get('higher_bloom', 0)}, "
+            f"lower-Bloom verbs={diag.get('lower_bloom', 0)}, "
+            f"open questions={diag.get('open_q', 0)}, "
+            f"compare/contrast tasks={diag.get('compare', 0)}"
+        )
+        if diag.get("q_header"):
+            bits.append("explicit higher-order question header found")
+        if diag.get("argumentation"):
+            bits.append("argumentation/CER pattern present")
+    elif fnum == 18:
+        if diag.get("detected"):
+            bits.append(
+                "explicit wait/think time mention"
+                + (" with duration" if diag.get("duration") else " (no duration)")
+            )
+        else:
+            bits.append("no wait-time language found")
+    elif fnum == 21:
+        ca, la = diag.get("content_app"), diag.get("language_app")
+        if ca and la:
+            bits.append("both content application AND language application present")
+        elif ca:
+            bits.append("content application present, but no language application")
+        elif la:
+            bits.append("language application present, but no content application")
+    elif fnum in (23, 24):
+        if "ratio" in diag:
+            bits.append(
+                f"TF-IDF alignment: {diag['aligned']}/{diag['n_steps']} "
+                f"activity steps overlap with the objective "
+                f"(ratio={diag['ratio']})"
+            )
+        elif "reason" in diag:
+            bits.append(f"alignment skipped: {diag['reason']}")
+    elif fnum == 25:
+        bits.append(
+            f"active-verb mentions={diag.get('active_verbs', 0)}, "
+            f"pacing markers={diag.get('pacing_markers', 0)}, "
+            f"multiple phases={_yes_no(diag.get('multiple_phases'))}, "
+            f"long passive segments={_yes_no(diag.get('long_passive'))}"
+        )
+    elif fnum == 26:
+        bits.append(
+            f"{diag.get('time_markers', 0)} time-stamp markers; "
+            f"total duration noted={_yes_no(diag.get('has_total'))}; "
+            f"fast/early-finisher provisions="
+            f"{_yes_no(diag.get('has_differentiation'))}"
+        )
+    elif fnum == 27:
+        bits.append(
+            f"{diag.get('distinct_close', 0)} vocabulary-review categories in the "
+            f"closing section; repeated-use cue={_yes_no(diag.get('repeated_use'))}"
+        )
+    elif fnum == 28:
+        bits.append(
+            f"{diag.get('distinct_close', 0)} review categories in the closing "
+            f"section; {diag.get('distinct_full', 0)} across the full text"
+        )
+    elif fnum == 30:
+        bits.append(
+            f"multiple checks-for-understanding="
+            f"{_yes_no(diag.get('multiple_moments'))}; "
+            f"formative+summative both present="
+            f"{_yes_no(diag.get('formative') and diag.get('summative'))}; "
+            f"assessment tied to objectives="
+            f"{_yes_no(diag.get('tied_to_objectives'))}; "
+            f"distinct assessment formats={diag.get('diverse_formats', 0)}"
+        )
+
+    return f"Score {score} — " + "; ".join(bits) + "."

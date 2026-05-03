@@ -32,6 +32,8 @@ import streamlit as st
 from codebook import (
     EXCLUDED_FEATURES,
     FEATURE_NAMES,
+    extract_evidence,
+    rationale,
     score_activity,
 )
 from data_loader import (
@@ -617,20 +619,43 @@ with tab_inspector:
 
     st.markdown("**Indicator diagnostics**")
     st.caption(
-        "Each row exposes the indicator counts that produced the score, so "
-        "you can audit any disagreement."
+        "For every feature: a plain-English explanation of why the algorithm "
+        "gave that score, the actual text excerpts that triggered each "
+        "indicator category, and the raw indicator counts."
     )
     diag_rows = []
     for fnum in sorted(diags):
+        evidence = extract_evidence(text, fnum)
+        if evidence:
+            evidence_str = "\n".join(
+                f"• [{e['category']}] {e['snippet']}" for e in evidence
+            )
+        else:
+            evidence_str = "— no matching excerpts —"
         diag_rows.append(
             {
                 "Feature": f"F{fnum}",
                 "Name": FEATURE_NAMES[fnum],
                 "Score": scores[fnum],
-                "Diagnostics": json.dumps(diags[fnum], default=str),
+                "Reasoning": rationale(fnum, scores[fnum], diags[fnum]),
+                "Evidence (text excerpts)": evidence_str,
+                "Diagnostics (raw)": json.dumps(diags[fnum], default=str),
             }
         )
-    st.dataframe(pd.DataFrame(diag_rows), use_container_width=True, hide_index=True)
+    st.dataframe(
+        pd.DataFrame(diag_rows),
+        use_container_width=True,
+        hide_index=True,
+        height=600,
+        column_config={
+            "Feature": st.column_config.TextColumn(width="small"),
+            "Name": st.column_config.TextColumn(width="medium"),
+            "Score": st.column_config.NumberColumn(width="small"),
+            "Reasoning": st.column_config.TextColumn(width="large"),
+            "Evidence (text excerpts)": st.column_config.TextColumn(width="large"),
+            "Diagnostics (raw)": st.column_config.TextColumn(width="medium"),
+        },
+    )
 
 
 # ---------------------------------------------------------------------------
