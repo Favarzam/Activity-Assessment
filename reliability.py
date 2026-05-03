@@ -20,6 +20,7 @@ Usage::
 from __future__ import annotations
 
 import argparse
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -28,8 +29,12 @@ from sklearn.metrics import cohen_kappa_score, confusion_matrix
 
 import krippendorff
 
-from siop_pipeline.codebook import EXCLUDED_FEATURES, FEATURE_NAMES
-from siop_pipeline.data_loader import load_human_scores
+_HERE = Path(__file__).resolve().parent
+if str(_HERE) not in sys.path:
+    sys.path.insert(0, str(_HERE))
+
+from codebook import EXCLUDED_FEATURES, FEATURE_NAMES
+from data_loader import load_human_scores
 
 
 # ---------------------------------------------------------------------------
