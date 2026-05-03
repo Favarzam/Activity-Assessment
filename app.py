@@ -13,38 +13,59 @@ from __future__ import annotations
 
 import io
 import json
+import sys
 from pathlib import Path
+
+# Make sibling .py files importable whether the app is launched as
+#   `streamlit run siop_pipeline/app.py`  (local: app.py inside a package dir)
+# or as Streamlit Cloud runs it
+#   `streamlit run app.py`                (cloud: app.py at repo root with siblings)
+_HERE = Path(__file__).resolve().parent
+if str(_HERE) not in sys.path:
+    sys.path.insert(0, str(_HERE))
 
 import altair as alt
 import numpy as np
 import pandas as pd
 import streamlit as st
 
-from siop_pipeline.codebook import (
+from codebook import (
     EXCLUDED_FEATURES,
     FEATURE_NAMES,
     score_activity,
 )
-from siop_pipeline.data_loader import (
+from data_loader import (
     load_activities,
     load_activities_from_txt,
     load_activities_from_xlsx,
     load_human_scores,
 )
-from siop_pipeline.pipeline import score_all
-from siop_pipeline.reliability import (
+from pipeline import score_all
+from reliability import (
     per_feature_report,
     pooled_summary,
 )
 
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_TEXTS = REPO_ROOT / "final_analysis_outputs" / "siop_column_c_full_text.txt"
-DEFAULT_HUMAN = (
-    REPO_ROOT
-    / "final_analysis_outputs"
-    / "siop_scoring_column_c_35_activities.csv"
-)
+# Default data files. We look in three places (in order):
+#   1. ./final_analysis_outputs/      (when app.py is at repo root, e.g. Cloud)
+#   2. ../final_analysis_outputs/     (when app.py is inside siop_pipeline/)
+#   3. ./                              (when the .txt / .csv sit next to app.py)
+def _find_default(name: str) -> Path:
+    for candidate in (
+        _HERE / "final_analysis_outputs" / name,
+        _HERE.parent / "final_analysis_outputs" / name,
+        _HERE / name,
+    ):
+        if candidate.exists():
+            return candidate
+    return _HERE / "final_analysis_outputs" / name  # for the error message
+
+
+DEFAULT_TEXTS = _find_default("siop_column_c_full_text.txt")
+DEFAULT_HUMAN = _find_default("siop_scoring_column_c_35_activities.csv")
+DATA_TMP_DIR = _HERE / "data"
+DATA_TMP_DIR.mkdir(parents=True, exist_ok=True)
 
 
 # ---------------------------------------------------------------------------
@@ -85,8 +106,7 @@ def _activities_from_path(path: str) -> pd.DataFrame:
 @st.cache_data(show_spinner=False)
 def _activities_from_upload(name: str, payload: bytes) -> pd.DataFrame:
     suffix = Path(name).suffix.lower()
-    tmp = REPO_ROOT / "siop_pipeline" / "data" / f"_uploaded_texts{suffix}"
-    tmp.parent.mkdir(parents=True, exist_ok=True)
+    tmp = DATA_TMP_DIR / f"_uploaded_texts{suffix}"
     tmp.write_bytes(payload)
     if suffix in (".xlsx", ".xls"):
         return load_activities_from_xlsx(tmp)
@@ -101,8 +121,7 @@ def _human_from_path(path: str) -> pd.DataFrame:
 @st.cache_data(show_spinner=False)
 def _human_from_upload(name: str, payload: bytes) -> pd.DataFrame:
     suffix = Path(name).suffix.lower()
-    tmp = REPO_ROOT / "siop_pipeline" / "data" / f"_uploaded_human{suffix}"
-    tmp.parent.mkdir(parents=True, exist_ok=True)
+    tmp = DATA_TMP_DIR / f"_uploaded_human{suffix}"
     tmp.write_bytes(payload)
     return load_human_scores(tmp)
 
