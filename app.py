@@ -14,6 +14,7 @@ from __future__ import annotations
 import io
 import json
 import sys
+from datetime import datetime
 from pathlib import Path
 
 # Make sibling .py files importable whether the app is launched as
@@ -47,6 +48,7 @@ from reliability import (
     per_feature_report,
     pooled_summary,
 )
+from report import build_docx_report
 
 
 # Default data files. We look in three places (in order):
@@ -155,6 +157,49 @@ def _signature(df: pd.DataFrame) -> tuple:
 
 def _csv_bytes(df: pd.DataFrame, index: bool = False) -> bytes:
     return df.to_csv(index=index).encode("utf-8")
+
+
+@st.cache_data(show_spinner="Collecting per-activity diagnostics…")
+def _diags_by_activity_cached(
+    _activities: pd.DataFrame, signature: tuple
+) -> dict[int, dict[int, dict]]:
+    out: dict[int, dict[int, dict]] = {}
+    for _, row in _activities.iterrows():
+        aid = int(row["activity_id"])
+        _, diags = score_activity(row["text"] or "")
+        out[aid] = diags
+    return out
+
+
+@st.cache_data(show_spinner="Building .docx report… this takes a moment")
+def _docx_bytes_cached(
+    _activities: pd.DataFrame,
+    _algo_wide: pd.DataFrame,
+    _human_wide: pd.DataFrame | None,
+    _reliability_report: pd.DataFrame | None,
+    _diags: dict[int, dict[int, dict]],
+    signature: tuple,
+    texts_source: str,
+    human_source: str | None,
+    include_excluded: bool,
+) -> bytes:
+    pooled = None
+    if _reliability_report is not None and not _reliability_report.empty:
+        pooled = pooled_summary(_reliability_report)
+    meta = {
+        "texts_source": texts_source,
+        "human_source": human_source or "—",
+        "include_excluded": include_excluded,
+    }
+    return build_docx_report(
+        activities=_activities,
+        algo_wide=_algo_wide,
+        diags_by_activity=_diags,
+        human_wide=_human_wide,
+        reliability_report=_reliability_report,
+        pooled=pooled,
+        meta=meta,
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -321,6 +366,67 @@ else:
 
 if human_err:
     st.warning(human_err)
+
+
+# ---------------------------------------------------------------------------
+# Full-report download (.docx) — sidebar
+# ---------------------------------------------------------------------------
+
+_diags = _diags_by_activity_cached(activities, _signature(activities))
+
+_texts_source_label = (
+    DEFAULT_TEXTS.name
+    if texts_choice.startswith("Use default")
+    else (texts_upload.name if texts_upload is not None else "—")
+)
+_human_source_label = (
+    DEFAULT_HUMAN.name
+    if human_choice.startswith("Use default") and human_wide is not None
+    else (
+        human_upload.name
+        if human_choice.startswith("Upload") and human_upload is not None
+        else None
+    )
+)
+
+st.sidebar.markdown("---")
+st.sidebar.markdown("**📝 Full findings report**")
+st.sidebar.caption(
+    "One .docx with the overview, reliability metrics (if human ratings "
+    "loaded), and per-activity scores + reasoning + text excerpts."
+)
+try:
+    _docx_bytes = _docx_bytes_cached(
+        activities,
+        algo_wide,
+        human_wide,
+        reliability_report,
+        _diags,
+        (
+            _signature(algo_wide),
+            _signature(human_wide) if human_wide is not None else None,
+            _signature(reliability_report) if reliability_report is not None else None,
+            include_excluded,
+        ),
+        _texts_source_label,
+        _human_source_label,
+        include_excluded,
+    )
+    st.sidebar.download_button(
+        "⬇️ Download full report (.docx)",
+        data=_docx_bytes,
+        file_name=(
+            f"siop_findings_report_"
+            f"{datetime.now().strftime('%Y%m%d_%H%M')}.docx"
+        ),
+        mime=(
+            "application/vnd.openxmlformats-officedocument."
+            "wordprocessingml.document"
+        ),
+        use_container_width=True,
+    )
+except Exception as e:
+    st.sidebar.error(f"Could not build report: {e}")
 
 
 # ---------------------------------------------------------------------------
